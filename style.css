@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:root {
+  height: 100vh;
+  /* colors */
+
+  --Red: hsl(0, 100%, 68%);
+
+  --Very-Dark-Blue: hsl(230, 29%, 20%);
+  --Dark-Grayish-Blue: hsl(230, 11%, 40%);
+  --Grayish-Blue: hsl(231, 7%, 65%);
+  --Light-Grayish-Blue: hsl(207, 33%, 95%);
+  /* fonts */
+  --font-barlow-condensed: "Barlow Condensed", sans-serif; /* 400 700*/
+  --font-barlow: "Barlow", sans-serif; /* 400 */
+  font-size: 18px;
+  /* size */
+  --padding: 35px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+body::after {
+  content: "";
+  position: absolute;
+  background-color: var(--Light-Grayish-Blue);
+  height: 50vh;
+  width: 50%;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  border-bottom-left-radius: 50px;
+}
+header {
+  position: relative;
+  height: 130px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  cursor: pointer;
+}
+#menu {
+  cursor: pointer;
+}
+#close {
+  cursor: pointer;
+  display: none;
+}
+.container {
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+}
+
+nav {
+  font-family: var(--font-barlow-condensed);
+  font-weight: 700;
+  color: var(--Very-Dark-Blue);
+  line-height: 2.5;
+  padding: 100px;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+  width: calc(100% - var(--padding) * 2);
+  background-color: white;
+  box-shadow: 0 4px 14px 4px rgba(88, 88, 88, 0.1);
+  bottom: -220px;
+  right: calc(var(--padding) * 2 - var(--padding) / 3);
+  display: none;
+}
+.active {
+  right: var(--padding);
+  display: flex;
+}
+hr {
+  background-color: var(--Grayish-Blue);
+  height: 1px;
+  border: none;
+  width: calc(100vw - var(--padding) * 4);
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+nav ul li:last-of-type {
+  color: var(--Grayish-Blue);
+}
+@media (min-width: 775px) {
+  header {
+    height: 180px;
+  }
+  .container {
+    padding-left: 170px;
+    padding-right: 170px;
+  }
+  #menu {
+    display: none !important;
+  }
+  #close {
+    display: none !important;
+  }
+
+  nav {
+    width: initial;
+    padding: 0;
+    height: auto;
+    line-height: normal;
+    position: initial;
+    background-color: transparent;
+    box-shadow: none;
+    display: block;
+    align-self: center;
+  }
+  nav hr {
+    border-radius: 50%;
+    align-self: center;
+    width: 4px;
+    height: 4px;
+  }
+  ul {
+    align-items: center;
+    display: flex;
+    gap: 40px;
+  }
+  main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  main figure img {
+    height: 550px;
+    margin-right: -400px;
+  }
+  main article.container {
+    width: 800px;
+  }
+  main article.container h1 {
+    font-size: 3rem;
+  }
+  main article.container > div > p {
+    font-size: 1rem;
+  }
+  main article div button {
+    cursor: pointer;
+  }
+  main article.container > p {
+    font-size: 1.5rem;
+  }
+  main article div button:hover {
+    opacity: 0.8;
+  }
+}
+main {
+  height: calc(100vh - 130px);
+  overflow: hidden;
+}
+main article {
+  height: calc(100vh - 130px - 290px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-weight: 600;
+  width: 100%;
+}
+figure img {
+  margin-left: 10px;
+  height: 290px;
+}
+.new {
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 15px;
+  color: var(--Light-Grayish-Blue);
+  background-color: var(--Very-Dark-Blue);
+  letter-spacing: normal;
+}
+main article p:nth-child(1) {
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: var(--font-barlow-condensed);
+  color: var(--Grayish-Blue);
+  letter-spacing: 6px;
+}
+main article h1 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-family: var(--font-barlow-condensed);
+}
+main article p {
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 1.4rem;
+  font-family: var(--font-barlow-condensed);
+  color: var(--Dark-Grayish-Blue);
+}
+article div {
+  font-family: var(--font-barlow-condensed);
+  gap: 15px;
+  align-items: center;
+  display: flex;
+}
+article > div > p {
+  color: var(--Grayish-Blue);
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+main article div button {
+  font-weight: 700;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  background-color: var(--Red);
+  color: var(--Light-Grayish-Blue);
+  padding: 12px 12px;
+  border: none;
+}
